@@ -12,7 +12,7 @@ export default function Header() {
                     <li className={""}><NavLink to={'/about'}>About</NavLink></li>
                     <li><a>Epic style</a></li>
                     <li><a>AAAAAAA</a></li>
-                    <div className={"btn btn-primary font-bold ml-5 "}><a>Log In</a></div>
+                    <div className={"btn btn-primary font-bold ml-5 "}><NavLink to={'/login'}>Log In</NavLink></div>
                 </ul>
             </div>
         </header>
