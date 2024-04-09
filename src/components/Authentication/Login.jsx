@@ -26,7 +26,9 @@ export default function Login() {
                 </form>
             </div>
             <div className={"mt-10 w-full flex justify-start"}>
-                <button className={"btn btn-secondary px-10"}><NavLink to={'/'}>Go Back</NavLink></button>
+                <NavLink to={'/'}>
+                    <button className={"btn btn-secondary px-10"}>Go Back</button>
+                </NavLink>
             </div>
         </main>
     )

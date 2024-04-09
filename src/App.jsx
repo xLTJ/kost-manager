@@ -14,7 +14,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         </Route>
         <Route path={'/login'} element={<Login/>}/>
     </Route>
-))
+), {basename: "/kost-manager/"})
 
 function App() {
     return (
