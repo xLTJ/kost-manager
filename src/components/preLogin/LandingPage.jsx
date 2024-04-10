@@ -1,6 +1,16 @@
 import Header from "./Header.jsx";
+import {useEffect} from "react";
+import spoonacularAPI from "../../Services/spoonacularAPI.js";
+import {NavLink} from "react-router-dom";
 
 export default function LandingPage() {
+    useEffect(() => {
+        async function fetchData() {
+            const test = await spoonacularAPI.searchRecipe({query: 'burger'});
+            console.log(test);
+        }
+    }, []);
+
     return (
         <main className={"container mx-auto"}>
             <div className="hero min-h-96 bg-base-100 mt-40">
@@ -9,7 +19,7 @@ export default function LandingPage() {
                         <h1 className="mb-5 text-5xl font-bold">Welcome to Kostmanager
                             <span className={"font-bold text-accent"}>TM</span></h1>
                         <p className="mb-5">The greatest kost manager app to ever exist</p>
-                        <button className="btn btn-primary">Sign Up Now!</button>
+                        <NavLink to={'/register'} className="btn btn-primary">Sign Up Now!</NavLink>
                     </div>
                 </div>
             </div>

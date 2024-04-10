@@ -5,6 +5,9 @@ import About from "./components/preLogin/About.jsx";
 import {Root} from "postcss";
 import PreLogin from "./components/preLogin/PreLogin.jsx";
 import Login from "./components/Authentication/Login.jsx";
+import Register from "./components/Authentication/Register.jsx";
+import Home from "./components/MainApp/Home.jsx";
+import {create} from 'zustand';
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>
@@ -13,8 +16,15 @@ const router = createBrowserRouter(createRoutesFromElements(
             <Route path={'/about'} element={<About/>}/>
         </Route>
         <Route path={'/login'} element={<Login/>}/>
+        <Route path={'/register'} element={<Register/>}/>
+        <Route path={'/home'} element={<Home/>}/>
     </Route>
 ), {basename: "/kost-manager/"})
+
+const useUserStore = create((set) => ({
+    username: '',
+    userData: {}
+}))
 
 function App() {
     return (
