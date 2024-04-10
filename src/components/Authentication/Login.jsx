@@ -1,17 +1,40 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {auth} from "../../firebase.config.js";
+import {useUserStore} from "../../Services/Store.js";
+import Alert from "../misc/Alert.jsx";
 
 export default function Login() {
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [firebaseErrorMessage, setFirebaseErrorMessage] = useState('')
+    const navigate = useNavigate();
+
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        try {
+            const userCredentials = await signInWithEmailAndPassword(auth, email, password);
+            const user = userCredentials.user;
+            useUserStore.getState().updateUser(user);
+
+            console.log(useUserStore.getState())
+            navigate('/home')
+        } catch (error) {
+            console.error(error.message);
+            if (error.message === 'Firebase: Error (auth/invalid-credential).') {
+                setFirebaseErrorMessage('Wrong email/password')
+            }
+        }
+    }
 
     return (
         <main className={"container mx-auto h-screen flex flex-col items-center justify-center max-w-screen-lg"}>
             <div>
                 <h1 className={"text-5xl font-bold"}>Login to Account</h1>
             </div>
-            <div className={"card shrink-0 w-full shadow-2xl bg-base-300 max-h-96 max-w-screen-lg mt-10"}>
-                <form className={"card-body"}>
+            <div className={"card shrink-0 w-full shadow-2xl bg-base-300 max-w-screen-lg mt-10"}>
+                <form className={"card-body"} onSubmit={handleSubmit}>
                     <div className={"form-control"}>
                         <label className={"label"}>Email</label>
                         <input className={"input"}
@@ -38,8 +61,9 @@ export default function Login() {
                                                                                              Sign up</NavLink>
                     </label>
                     <div className={"form-control mt-8"}>
-                        <button className={"btn btn-primary"}>Login</button>
+                        <button className={"btn btn-primary"} type={"submit"}>Login</button>
                     </div>
+                    {firebaseErrorMessage ? <Alert message={firebaseErrorMessage}/> : null}
                 </form>
             </div>
             <div className={"mt-10 w-full flex justify-start"}>

@@ -23,8 +23,16 @@ export default function Register() {
             navigate('/home')
         } catch (error) {
             console.error(error.message);
-            if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
-                setFirebaseErrorMessage('Account with this email already exists')
+            switch (error.message) {
+                case 'Firebase: Password should be at least 6 characters (auth/weak-password).':
+                    setFirebaseErrorMessage('Password should be at least 6 characters');
+                    break;
+                case 'Firebase: Error (auth/email-already-in-use).':
+                    setFirebaseErrorMessage('Account with this email already exists')
+                    break;
+                case 'Firebase: Error (auth/invalid-email).':
+                    setFirebaseErrorMessage('Invalid Email')
+                    break;
             }
         }
     }
