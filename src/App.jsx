@@ -2,12 +2,12 @@ import './App.css'
 import {createBrowserRouter, createRoutesFromElements, Route, RouterProvider} from "react-router-dom";
 import LandingPage from "./components/preLogin/LandingPage.jsx";
 import About from "./components/preLogin/About.jsx";
-import {Root} from "postcss";
 import PreLogin from "./components/preLogin/PreLogin.jsx";
 import Login from "./components/Authentication/Login.jsx";
 import Register from "./components/Authentication/Register.jsx";
 import Home from "./components/MainApp/Home.jsx";
-import {create} from 'zustand';
+import MainAppRoot from "./components/MainApp/MainAppRoot.jsx";
+import SearchPage from "./components/MainApp/search/SearchPage.jsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>
@@ -17,14 +17,12 @@ const router = createBrowserRouter(createRoutesFromElements(
         </Route>
         <Route path={'/login'} element={<Login/>}/>
         <Route path={'/register'} element={<Register/>}/>
-        <Route path={'/home'} element={<Home/>}/>
+        <Route path={'/app'} element={<MainAppRoot/>}>
+            <Route path={'/app'} element={<Home/>}/>
+            <Route path={'/app/search'} element={<SearchPage/>}/>
+        </Route>
     </Route>
 ), {basename: "/kost-manager/"})
-
-const useUserStore = create((set) => ({
-    username: '',
-    userData: {}
-}))
 
 function App() {
     return (

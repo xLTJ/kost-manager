@@ -18,9 +18,10 @@ export default function Register() {
             const userCredentials = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredentials.user;
             useUserStore.getState().updateUser(user);
+            useUserStore.getState().isLoggedIn(true);
 
-            console.log(useUserStore.getState())
-            navigate('/home')
+            useUserStore.getState().console.log(useUserStore.getState())
+            navigate('/app')
         } catch (error) {
             console.error(error.message);
             switch (error.message) {

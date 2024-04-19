@@ -17,9 +17,10 @@ export default function Login() {
             const userCredentials = await signInWithEmailAndPassword(auth, email, password);
             const user = userCredentials.user;
             useUserStore.getState().updateUser(user);
+            useUserStore.getState().userLoggedIn(true);
 
             console.log(useUserStore.getState())
-            navigate('/home')
+            navigate('/app')
         } catch (error) {
             console.error(error.message);
             if (error.message === 'Firebase: Error (auth/invalid-credential).') {
