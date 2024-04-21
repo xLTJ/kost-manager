@@ -13,7 +13,7 @@ export default function ResultList ({results}) {
     }
 
     return (
-        <div className={"flex flex-wrap gap-8 justify-center my-10"}>
+        <div className={"flex flex-wrap gap-8 justify-center content-start my-10"}>
             {resultCards === 'Loading' ? <h1>Loading</h1> : resultCards}
         </div>
     )

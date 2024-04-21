@@ -3,6 +3,7 @@ import {useFilterStore} from "../../../../Services/Store.js";
 export default function SearchFilterCheckbox ({filter, value}) {
     const filterStore = useFilterStore.getState()
 
+    // Add or remove filter from filter store when checkbox is checked or unchecked.
     const handleChange = (e) => {
         e.target.checked ? filterStore.addFilter(filter, value) : filterStore.removeFilter(filter, value);
     }

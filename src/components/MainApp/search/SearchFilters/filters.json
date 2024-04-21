@@ -1,0 +1,101 @@
+{
+  "diet": {
+    "diet": [
+      "balanced",
+      "high-fiber",
+      "high-protein",
+      "low-carb",
+      "low-fat",
+      "low-sodium"
+    ],
+    "health": [
+      "DASH",
+      "gluten-free",
+      "keto-friendly",
+      "low-fat-abs",
+      "low-sugar",
+      "mediterranean",
+      "no-oil-added",
+      "paleo",
+      "pescatarian",
+      "sugar-conscious",
+      "vegan",
+      "vegetarian",
+      "wheat-free"
+    ]
+  },
+  "allergies": {
+    "health": [
+      "alcohol-free",
+      "celery-free",
+      "crustacean-free",
+      "dairy-free",
+      "egg-free",
+      "fish-free",
+      "gluten-free",
+      "kidney-friendly",
+      "low-potassium",
+      "lupine-free",
+      "mustard-free",
+      "peanut-free",
+      "pork-free",
+      "red-meat-free",
+      "sesame-free",
+      "shellfish-free",
+      "soy-free",
+      "tree-nut-free",
+      "wheat-free"
+    ]
+  },
+  "cuisine": {
+    "cuisine": [
+      "american",
+      "asian",
+      "british",
+      "caribbean",
+      "central-european",
+      "chinese",
+      "eastern-european",
+      "french",
+      "indian",
+      "italian",
+      "japanese",
+      "kosher",
+      "mediterranean",
+      "mexican",
+      "middle-eastern",
+      "nordic",
+      "south-american",
+      "south-east-asian"
+    ]
+  },
+  "mealType": {
+    "mealType": [
+      "breakfast",
+      "brunch",
+      "lunch",
+      "dinner",
+      "snack",
+      "teatime"
+    ]
+  },
+    "dishType": {
+      "dishType": [
+        "biscuits and cookies",
+        "bread",
+        "cereals",
+        "condiments and sauces",
+        "desserts",
+        "drinks",
+        "main course",
+        "pancake",
+        "preps",
+        "preserves",
+        "salad",
+        "sandwiches",
+        "soup",
+        "starter",
+        "sweets"
+      ]
+    }
+}

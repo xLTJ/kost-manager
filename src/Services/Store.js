@@ -15,17 +15,19 @@ const useActiveModalStore = create((set) => ({
     closeModal: () => set({activeModal: false})
 }));
 
+// State for storing the filters that are applied to the recipe search.
 const useFilterStore = create((set) => ({
     filters: {
         diet: [],
         health: [],
-        cuisine: [],
+        cuisineType: [],
         mealType: [],
         dishType: [],
-        calories: null,
-        ingredientNumber: null,
+        calories: '',
+        ingredientNumber: '',
     },
 
+    // Add a filter to the filter store. If the filter already exists or is invalid, it will not be added.
     addFilter: (filterName, newValue) => {
         if (!useFilterStore.getState().filters[filterName]) {
             console.error("invalid filter")
@@ -45,6 +47,7 @@ const useFilterStore = create((set) => ({
             }));
     },
 
+    // Remove a filter from the filter store. If the filter doesn't exist or is invalid, it will not be removed.
     removeFilter: (filterName, valueToRemove) => {
         if (!useFilterStore.getState().filters[filterName]) {
             console.error("invalid filter")
@@ -64,8 +67,9 @@ const useFilterStore = create((set) => ({
         }));
     },
 
+    // Set a filter to a new value. If the filter doesn't exist or is invalid, it will not be set. Should only be used for filters with a single value.
     setFilter: (filterName, newValue) => {
-        if (!useFilterStore.getState().filters[filterName]) {
+        if (useFilterStore.getState().filters[filterName] === null) {
             console.error("invalid filter")
             return;
         }
@@ -75,12 +79,24 @@ const useFilterStore = create((set) => ({
             return;
         }
 
+
         set((state) => ({
             filters: {
                 ...state.filters,
                 [filterName]: newValue
             }
         }));
+    },
+    resetFilters: () => {
+        set({filters: {
+                diet: [],
+                health: [],
+                cuisineType: [],
+                mealType: [],
+                dishType: [],
+                calories: '',
+                ingr: '',
+            }})
     }
 }));
 
