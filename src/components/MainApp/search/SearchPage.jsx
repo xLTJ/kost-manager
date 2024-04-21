@@ -1,26 +1,46 @@
 import {useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
-import spoonacularAPI from "../../../Services/spoonacularAPI.js";
+import edamamAPI from "../../../Services/edamamAPI.js";
+import ResultList from "./ResultList.jsx";
+import {useActiveModalStore} from "../../../Services/Store.js";
+import RecipeModal from "../generalComponents/RecipeModal.jsx";
+import AdvancedSearch from "./AdvancedSearch.jsx";
 
 export default function SearchPage() {
-    const [searchParams] = useSearchParams();
+    const [urlSearchParams] = useSearchParams();
+
+    const [searchParams, setSearchParams] = useState({})
     const [recipeResults, setRecipeResults] = useState([]);
 
-    const recipeToSearch = searchParams.get('recipe');
+    const activeModal = useActiveModalStore(state => state.activeModal);
+    const modalContent = useActiveModalStore(state => state.modalContent);
 
+    // Close modal on back button press in order to prevent modal from staying open when user leaves the page.
     useEffect(() => {
-        async function fetchData() {
-            const test = await spoonacularAPI.searchRecipe({query: recipeToSearch});
-            console.log(test);
+        window.addEventListener('popstate', useActiveModalStore.getState().closeModal());
+
+        return () => window.removeEventListener('popstate', useActiveModalStore.getState().closeModal());
+    }, []);
+    
+    useEffect(() => {
+        setSearchParams(new URLSearchParams({q: urlSearchParams.get('recipe')}));
+    }, [urlSearchParams])
+
+    // Fetch recipes from API when recipeToSearch changes.
+    useEffect(() => {
+        async function fetchRecipes() {
+            const fetchedRecipes = await edamamAPI.searchRecipes(searchParams);
+            setRecipeResults(fetchedRecipes.hits);
         }
 
-        // fetchData().catch(console.error)
-    }, [recipeToSearch]);
+        fetchRecipes().catch(console.error)
+    }, [searchParams]);
 
     return (
-        <div className={"container mx-auto"}>
-            <h1>U searched for smth idk</h1>
-            <h1>{recipeToSearch}</h1>
+        <div className={"container mx-auto flex"}>
+            <AdvancedSearch setSearchQuery={setSearchParams}/>
+            <ResultList results={recipeResults}/>
+            {activeModal ? <RecipeModal recipeData={modalContent}/> : null}
         </div>
     )
 }

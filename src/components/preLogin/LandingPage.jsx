@@ -2,13 +2,16 @@ import Header from "./Header.jsx";
 import {useEffect} from "react";
 import spoonacularAPI from "../../Services/spoonacularAPI.js";
 import {NavLink} from "react-router-dom";
+import edamamAPI from "../../Services/edamamAPI.js";
 
 export default function LandingPage() {
     useEffect(() => {
         async function fetchData() {
-            const test = await spoonacularAPI.searchRecipe({query: 'burger'});
+            const test = await edamamAPI.searchRecipes({q: 'apple pie'});
             console.log(test);
         }
+
+        // fetchData().catch(console.error);
     }, []);
 
     return (

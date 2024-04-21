@@ -6,7 +6,7 @@ export default function MainAppHeader() {
     return (
         <header className={'navbar sticky top-0 bg-base-300 text-base-300-content gap-4 z-50'}>
             <div className={'navbar-start'}>
-                <NavLink className={'btn btn-ghost text-2xl font-bold'} to={'/'}>Kostmanager<span
+                <NavLink className={'btn btn-ghost text-2xl font-bold'} to={'/app'}>Kostmanager<span
                     className={'text-accent'}>TM</span></NavLink>
             </div>
             <div className={'navbar-center'}>
