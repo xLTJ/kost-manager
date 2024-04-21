@@ -14,9 +14,9 @@ export default function RecipeModal ({recipeData}) {
         const recipeUri = recipeData.uri.split('_')[1]
         const userUID = useUserStore.getState().userData.uid;
 
+        await addRecipe(userUID, recipeUri, recipeData)
         const savedRecipes = await getSavedRecipes(userUID)
         console.log(savedRecipes);
-        await addRecipe(userUID, recipeUri, recipeData)
     }
 
     console.log(recipeData)
