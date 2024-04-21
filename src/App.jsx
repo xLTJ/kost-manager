@@ -5,7 +5,7 @@ import About from "./components/preLogin/About.jsx";
 import PreLogin from "./components/preLogin/PreLogin.jsx";
 import Login from "./components/Authentication/Login.jsx";
 import Register from "./components/Authentication/Register.jsx";
-import Home from "./components/MainApp/Home.jsx";
+import Home from "./components/MainApp/home/Home.jsx";
 import MainAppRoot from "./components/MainApp/MainAppRoot.jsx";
 import SearchPage from "./components/MainApp/search/SearchPage.jsx";
 

@@ -7,7 +7,11 @@ export default {
     theme: {
         extend: {},
     },
-    plugins: [require("daisyui"), require('tailwind-scrollbar'),],
+    plugins: [
+        require("daisyui"),
+        require('tailwind-scrollbar'),
+        require("tailwind-gradient-mask-image"),
+    ],
     daisyui: {
         themes: ["light", "dark", "cupcake", "forest", "lemonade", "pastel"],
     },

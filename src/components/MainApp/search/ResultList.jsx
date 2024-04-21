@@ -1,4 +1,4 @@
-import ResultCard from "./ResultCard.jsx";
+import FoodCard from "../generalComponents/FoodCard.jsx";
 
 export default function ResultList ({results}) {
     console.log(results)
@@ -6,7 +6,7 @@ export default function ResultList ({results}) {
     let resultCards;
 
     if (results) {
-        resultCards = results.map((result) => <ResultCard key={result.recipe.uri} result={result}/>)
+        resultCards = results.map((result) => <FoodCard key={result.recipe.uri} result={result}/>)
     } else {
         resultCards = 'Loading';
 
