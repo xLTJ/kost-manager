@@ -1,28 +1,24 @@
 import {createSearchParams, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import EdamamAPI from "../../../Services/edamamAPI.js";
 
-export default function SearchBar() {
+export default function FoodSearchbar({setSearchResults}) {
     const [searchValue, setSearchValue] = useState('')
-    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const searchQuery = {recipe: searchValue}
-        const query = createSearchParams(searchQuery);
-
-        navigate({
-            pathname: 'search',
-            search: `?${query}`
-        })
+        const foodResults = await EdamamAPI.searchFood(searchValue);
+        console.log(foodResults);
+        setSearchResults(foodResults.hints);
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={"flex justify-center"}>
             <input
                 type={'text'}
                 placeholder={'Search'}
-                className={'input input-primary w-96'}
+                className={'input input-primary w-full'}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
             />

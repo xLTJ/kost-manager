@@ -8,6 +8,7 @@ import Register from "./components/Authentication/Register.jsx";
 import Home from "./components/MainApp/home/Home.jsx";
 import MainAppRoot from "./components/MainApp/MainAppRoot.jsx";
 import SearchPage from "./components/MainApp/search/SearchPage.jsx";
+import NutritionCalculator from "./components/MainApp/nutritionCalculator/NutritionCalculator.jsx";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>
@@ -20,6 +21,7 @@ const router = createBrowserRouter(createRoutesFromElements(
         <Route path={'/app'} element={<MainAppRoot/>}>
             <Route path={'/app'} element={<Home/>}/>
             <Route path={'/app/search'} element={<SearchPage/>}/>
+            <Route path={'/app/nutrition-calculator'} element={<NutritionCalculator/>}/>
         </Route>
     </Route>
 ), {basename: "/kost-manager/"})

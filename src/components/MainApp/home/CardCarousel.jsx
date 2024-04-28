@@ -1,9 +1,9 @@
-import FoodCard from "../generalComponents/FoodCard.jsx";
+import RecipeCard from "../generalComponents/RecipeCard.jsx";
 
 export default function CardCarousel ({items}) {
     const foodCards = items.map((item) => (
         <div className={"first:ml-12 last:mr-12 shrink-0 flex"}>
-            <FoodCard key={item.id} result={item}/>
+            <RecipeCard key={item.id} result={item}/>
         </div>
         )
     )

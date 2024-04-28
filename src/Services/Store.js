@@ -27,7 +27,7 @@ const useFilterStore = create((set) => ({
         ingredientNumber: '',
     },
 
-    // Add a filter to the filter store. If the filter already exists or is invalid, it will not be added.
+    // Add a filter to the filter store. If the filter already exists or is invalid, it wont be added.
     addFilter: (filterName, newValue) => {
         if (!useFilterStore.getState().filters[filterName]) {
             console.error("invalid filter")
@@ -47,7 +47,7 @@ const useFilterStore = create((set) => ({
             }));
     },
 
-    // Remove a filter from the filter store. If the filter doesn't exist or is invalid, it will not be removed.
+    // Remove a filter from the filter store. If the filter doesn't exist or is invalid, it will not be removed (cus it doesnt exist).
     removeFilter: (filterName, valueToRemove) => {
         if (!useFilterStore.getState().filters[filterName]) {
             console.error("invalid filter")
@@ -87,6 +87,8 @@ const useFilterStore = create((set) => ({
             }
         }));
     },
+
+    // Reset all filters to their default values.
     resetFilters: () => {
         set({filters: {
                 diet: [],
@@ -100,4 +102,31 @@ const useFilterStore = create((set) => ({
     }
 }));
 
-export {useUserStore, useActiveModalStore, useFilterStore};
+const useAddedFoodStore = create((set) => ({
+    addedFood: [],
+
+    // Add a food item to the food store. If the food item already exists, it wont be added.
+    addFood: (food) => {
+        if (useAddedFoodStore.getState().addedFood.find((item) => item === food)) {
+            console.error("Food already added")
+            return;
+        }
+
+        set({addedFood: [...useAddedFoodStore.getState().addedFood, food]})
+    },
+
+    // Remove a food item from the food store. If the food item doesn't exist, it will not be removed (cus it doesnt exist).
+    removeFood: (food) => {
+        if (!useAddedFoodStore.getState().addedFood.find((item) => item === food)) {
+            console.error("Food not found")
+            return;
+        }
+
+        set({addedFood: useAddedFoodStore.getState().addedFood.filter((item) => item !== food)})
+    },
+
+    // Clear all food items from the food store.
+    clearFoods: () => set({addedFood: []})
+}));
+
+export {useUserStore, useActiveModalStore, useFilterStore, useAddedFoodStore};

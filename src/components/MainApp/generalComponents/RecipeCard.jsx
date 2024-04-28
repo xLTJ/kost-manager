@@ -2,7 +2,7 @@ import {capitalizeFirstLetter} from "../../../Services/helperFunctions.js";
 import {Link} from "react-router-dom";
 import {useActiveModalStore} from "../../../Services/Store.js";
 
-export default function FoodCard ({result}) {
+export default function RecipeCard ({result}) {
     const recipe = result.recipe;
 
 

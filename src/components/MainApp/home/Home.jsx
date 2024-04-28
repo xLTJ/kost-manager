@@ -16,9 +16,9 @@ export default function Home() {
         const fetchSavedRecipes = async () => {
             const userUID = useUserStore.getState().userData.uid;
             const savedRecipes = await getSavedRecipes(userUID)
+
             // get the last 10 saved recipes, and reverse the order so the most recent is first
-            const recentRecipes = savedRecipes.slice(Math.max(savedRecipes.length - 10, 0)).reverse()
-            setSavedRecipes(recentRecipes);
+            setSavedRecipes(savedRecipes.slice(Math.max(savedRecipes.length - 10, 0)));
             console.log(savedRecipes)
         }
 

@@ -1,6 +1,6 @@
 import {NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "../../firebase.config.js";
 import {useUserStore} from "../../Services/Store.js";
 import Alert from "../misc/Alert.jsx";
@@ -19,7 +19,8 @@ export default function Login() {
             useUserStore.getState().updateUser(user);
             useUserStore.getState().userLoggedIn(true);
 
-            console.log(useUserStore.getState())
+            localStorage.setItem('user', JSON.stringify(user));
+
             navigate('/app')
         } catch (error) {
             console.error(error.message);

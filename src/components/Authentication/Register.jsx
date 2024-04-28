@@ -20,6 +20,8 @@ export default function Register() {
             useUserStore.getState().updateUser(user);
             useUserStore.getState().userLoggedIn(true);
 
+            localStorage.setItem('user', JSON.stringify(user));
+
             navigate('/app')
         } catch (error) {
             console.error(error.message);
