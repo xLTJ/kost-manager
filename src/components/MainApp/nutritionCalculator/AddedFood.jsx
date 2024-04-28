@@ -13,10 +13,9 @@ export default function AddedFood() {
     const totalCarbs = addedFood.reduce((acc, food) => acc + food.totalNutrients.CHOCDF, 0);
 
     return (
-        <div className={"bg-base-300 flex flex-col p-10 rounded-xl min-w-[40rem] max-h-screen"}>
-            <h1 className={"font-bold text-4xl flex justify-center mb-10"}>Added Food</h1>
+        <div className={"flex flex-col p-10 rounded-xl min-w-[46rem] max-h-screen"}>
             <div className={"join join-vertical outline outline-1 outline-primary"}>
-                <h2 className={"join-item bg-base-100 text-2xl flex justify-center font-bold p-4"}>Total Nutrients</h2>
+                <h2 className={"join-item bg-base-100 text-4xl flex justify-center font-bold p-4"}>Total Nutrients</h2>
                 <div className={"stats join-item outline outline-1 outline-primary"}>
                     <div className={"stat "}>
                         <span className={"stat-title"}>Calories</span>
@@ -37,7 +36,7 @@ export default function AddedFood() {
                 </div>
             </div>
             <div className="divider"></div>
-            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2 h-full py-4"}>
+            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2 h-full py-12 gradient-mask-t-90-d"}>
                 {addedFood && addedFood.map((food) => <AddedFoodCard food={food}/>)}
             </ul>
         </div>

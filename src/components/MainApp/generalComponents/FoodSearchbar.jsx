@@ -17,7 +17,7 @@ export default function FoodSearchbar({setSearchResults}) {
         <form onSubmit={handleSubmit} className={"flex justify-center"}>
             <input
                 type={'text'}
-                placeholder={'Search'}
+                placeholder={'Search for food'}
                 className={'input input-primary w-full'}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
