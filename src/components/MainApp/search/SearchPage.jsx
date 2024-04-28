@@ -2,15 +2,16 @@ import {useSearchParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import edamamAPI from "../../../Services/edamamAPI.js";
 import ResultList from "./ResultList.jsx";
-import {useActiveModalStore, useFilterStore} from "../../../Services/Store.js";
+import {useActiveModalStore, useFilterStore, useRecipeResultsStore} from "../../../Services/Store.js";
 import RecipeModal from "../generalComponents/RecipeModal.jsx";
 import AdvancedSearch from "./AdvancedSearch.jsx";
 
 export default function SearchPage() {
+    const recipeResultsStore = useRecipeResultsStore(state => state.recipeResults);
     const [urlSearchParams] = useSearchParams();
 
     const [searchParams, setSearchParams] = useState({})
-    const [recipeResults, setRecipeResults] = useState([]);
+    // const [recipeResults, setRecipeResults] = useState([]);
 
     const activeModal = useActiveModalStore(state => state.activeModal);
     const modalContent = useActiveModalStore(state => state.modalContent);
@@ -27,14 +28,14 @@ export default function SearchPage() {
 
     // Set search parameters from URLSearchParams every time URLSearchParams changes.
     useEffect(() => {
-        setSearchParams(new URLSearchParams({q: urlSearchParams.get('recipe')}));
+        urlSearchParams.get('recipe') ? setSearchParams(new URLSearchParams({q: urlSearchParams.get('recipe')})) : null;
     }, [urlSearchParams])
 
     // Fetch recipes from API when recipeToSearch changes.
     useEffect(() => {
         async function fetchRecipes() {
             const fetchedRecipes = await edamamAPI.searchRecipes(searchParams);
-            setRecipeResults(fetchedRecipes.hits);
+            useRecipeResultsStore.getState().setRecipeResults(fetchedRecipes.hits);
         }
 
         fetchRecipes().catch(console.error)
@@ -43,7 +44,7 @@ export default function SearchPage() {
     return (
         <div className={"container mx-auto flex justify-around"}>
             <AdvancedSearch setSearchQuery={setSearchParams}/>
-            <ResultList results={recipeResults}/>
+            <ResultList results={recipeResultsStore}/>
             {activeModal ? <RecipeModal recipeData={modalContent}/> : null}
         </div>
     )

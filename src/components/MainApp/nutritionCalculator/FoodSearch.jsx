@@ -10,7 +10,7 @@ export default function FoodSearch() {
             <h1 className={"font-bold text-4xl flex justify-center mb-10"}>Add More Food</h1>
             <FoodSearchbar setSearchResults={setSearchResults}/>
             <div className="divider"></div>
-            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2"}>
+            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2 py-4"}>
                 {searchResults && searchResults.map((result) => <FoodResultCard food={result.food}/>)}
             </ul>
         </div>

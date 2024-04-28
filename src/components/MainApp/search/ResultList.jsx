@@ -1,7 +1,6 @@
 import RecipeCard from "../generalComponents/RecipeCard.jsx";
 
 export default function ResultList ({results}) {
-    console.log(results)
 
     let resultCards;
 

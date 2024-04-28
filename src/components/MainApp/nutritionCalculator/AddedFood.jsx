@@ -7,10 +7,10 @@ export default function AddedFood() {
     const addedFood = useAddedFoodStore(state => state.addedFood);
 
     // Calculate total nutrients from added food
-    const totalCalories = addedFood.reduce((acc, food) => acc + food.nutrients.ENERC_KCAL, 0);
-    const totalProtein = addedFood.reduce((acc, food) => acc + food.nutrients.PROCNT, 0);
-    const totalFat = addedFood.reduce((acc, food) => acc + food.nutrients.FAT, 0);
-    const totalCarbs = addedFood.reduce((acc, food) => acc + food.nutrients.CHOCDF, 0);
+    const totalCalories = addedFood.reduce((acc, food) => acc + food.totalNutrients.ENERC_KCAL, 0);
+    const totalProtein = addedFood.reduce((acc, food) => acc + food.totalNutrients.PROCNT, 0);
+    const totalFat = addedFood.reduce((acc, food) => acc + food.totalNutrients.FAT, 0);
+    const totalCarbs = addedFood.reduce((acc, food) => acc + food.totalNutrients.CHOCDF, 0);
 
     return (
         <div className={"bg-base-300 flex flex-col p-10 rounded-xl min-w-[40rem] max-h-screen"}>
@@ -37,7 +37,7 @@ export default function AddedFood() {
                 </div>
             </div>
             <div className="divider"></div>
-            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2 h-full"}>
+            <ul className={"flex flex-col gap-6 overflow-auto scrollbar-thin pr-2 h-full py-4"}>
                 {addedFood && addedFood.map((food) => <AddedFoodCard food={food}/>)}
             </ul>
         </div>

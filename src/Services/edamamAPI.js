@@ -6,7 +6,6 @@ const foodAppKey = '9ebed71458a3b5e0f9eac05ed31b9544';
 const edamamAPI = {
     // Function to search for recipes using the Edamam API. The options parameter is an object that contains the search parameters.
     async searchRecipes(options) {
-        console.log(options)
 
         const baseSearchParams = new URLSearchParams({
             type: 'public',

@@ -107,12 +107,23 @@ const useAddedFoodStore = create((set) => ({
 
     // Add a food item to the food store. If the food item already exists, it wont be added.
     addFood: (food) => {
-        if (useAddedFoodStore.getState().addedFood.find((item) => item === food)) {
+        if (useAddedFoodStore.getState().addedFood.find((item) => item.foodId === food.foodId)) {
             console.error("Food already added")
             return;
         }
 
+        food = {...food,
+            amount: 100,
+            totalNutrients: {
+                ENERC_KCAL: food.nutrients.ENERC_KCAL,
+                PROCNT: food.nutrients.PROCNT,
+                FAT: food.nutrients.FAT,
+                CHOCDF: food.nutrients.CHOCDF
+            }
+        }
+
         set({addedFood: [...useAddedFoodStore.getState().addedFood, food]})
+        console.log(useAddedFoodStore.getState().addedFood);
     },
 
     // Remove a food item from the food store. If the food item doesn't exist, it will not be removed (cus it doesnt exist).
@@ -125,8 +136,35 @@ const useAddedFoodStore = create((set) => ({
         set({addedFood: useAddedFoodStore.getState().addedFood.filter((item) => item !== food)})
     },
 
+    // Set the amount of a food item in the food store. Also updates the total nutrients of the food item based on the amount.
+    // If the food item doesn't exist, it will not be updated (cus it doesnt exist).
+    setAmount: (foodId, amount) => {
+        if (!useAddedFoodStore.getState().addedFood.find((food) => food.foodId === foodId)) {
+            console.error("Food not found")
+            return;
+        }
+
+        set({addedFood: useAddedFoodStore.getState().addedFood.map((food) => {
+                return food.foodId === foodId ? {
+                    ...food,
+                    amount: amount,
+                    totalNutrients: {
+                        ENERC_KCAL: food.nutrients.ENERC_KCAL / 100 * amount,
+                        PROCNT: food.nutrients.PROCNT / 100 * amount,
+                        FAT: food.nutrients.FAT / 100 * amount,
+                        CHOCDF: food.nutrients.CHOCDF / 100 * amount
+                    }} : food;
+            })})
+    },
+
     // Clear all food items from the food store.
     clearFoods: () => set({addedFood: []})
 }));
 
-export {useUserStore, useActiveModalStore, useFilterStore, useAddedFoodStore};
+const useRecipeResultsStore = create((set) => ({
+    recipeResults: [],
+    setRecipeResults: (results) => set({recipeResults: results}),
+    clearRecipes: () => set({recipeResults: []})
+}));
+
+export {useUserStore, useActiveModalStore, useFilterStore, useAddedFoodStore, useRecipeResultsStore};
