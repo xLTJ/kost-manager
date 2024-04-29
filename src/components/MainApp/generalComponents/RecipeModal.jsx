@@ -3,7 +3,7 @@ import NutritionTable from "./NutritionTable.jsx";
 import {useState} from "react";
 import {addRecipe, getSavedRecipes} from "../../../Services/firebase.js";
 
-export default function RecipeModal ({recipeData}) {
+export default function RecipeModal({recipeData}) {
     const [showPerPortion, setShowPerPortion] = useState(false)
 
     const closeModal = () => {
@@ -46,7 +46,7 @@ export default function RecipeModal ({recipeData}) {
                     <p>Gives {recipeData.yield} portions</p>
                     <div className={"join my-5"}>
                         <a href={recipeData.url} target={'_blank'} className={"btn btn-wide join-item"}>View Recipe</a>
-                        <button className={"btn btn-secondary join-item"} onClick={saveRecipe}>Add</button>
+                        <button className={"btn btn-secondary join-item"} onClick={saveRecipe}>Save</button>
                     </div>
                     <label className="label justify-start gap-2">
                         <span className="label-text">Nutrition per portion</span>

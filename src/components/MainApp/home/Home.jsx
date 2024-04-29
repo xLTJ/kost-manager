@@ -18,7 +18,7 @@ export default function Home() {
             const savedRecipes = await getSavedRecipes(userUID)
 
             // get the last 10 saved recipes, and reverse the order so the most recent is first
-            setSavedRecipes(savedRecipes.slice(Math.max(savedRecipes.length - 10, 0)));
+            setSavedRecipes(savedRecipes.slice(0, 10));
             console.log(savedRecipes)
         }
 
@@ -33,12 +33,13 @@ export default function Home() {
                 <div className="hero-overlay bg-black bg-opacity-50 shadow-2xl"></div>
                 <div className={"hero-content text-center text-neutral-content"}>
                     <div className={""}>
-                        <h1 className={"text-4xl font-bold my-10"}><span className={"text-accent"}>Welcome</span> {useUserStore.getState().username}</h1>
+                        <h1 className={"text-4xl font-bold my-10"}><span
+                            className={"text-accent"}>Welcome</span> {useUserStore.getState().username}</h1>
                         <HomeSearch/>
                     </div>
                 </div>
             </div>
-            <div className={"container mx-auto align-middle py-10"}>
+            <div className={"container mx-auto align-middle py-10 px-4"}>
                 <div className={"min-h-96"}>
                     <h2 className={"text-3xl font-bold"}>Recently Saved</h2>
                     {savedRecipes ? <CardCarousel items={savedRecipes}/> : null}
