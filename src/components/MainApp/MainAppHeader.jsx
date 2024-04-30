@@ -1,4 +1,4 @@
-import {createSearchParams, NavLink, useNavigate} from "react-router-dom";
+import {createSearchParams, Link, NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import SearchBar from "./search/SearchBar.jsx";
 import {useUserStore} from "../../Services/Store.js";

@@ -21,7 +21,7 @@ export default function SearchBar() {
         <form onSubmit={handleSubmit}>
             <input
                 type={'text'}
-                placeholder={'Search'}
+                placeholder={'Search Recipe'}
                 className={'input input-primary w-96'}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}

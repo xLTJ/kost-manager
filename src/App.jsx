@@ -9,6 +9,7 @@ import Home from "./components/MainApp/home/Home.jsx";
 import MainAppRoot from "./components/MainApp/MainAppRoot.jsx";
 import SearchPage from "./components/MainApp/search/SearchPage.jsx";
 import NutritionCalculator from "./components/MainApp/nutritionCalculator/NutritionCalculator.jsx";
+import {Navigate} from "react-router";
 
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path={'/'}>

@@ -45,8 +45,8 @@ export default function RecipeModal ({recipeData}) {
                     </div>
                     <p>Gives {recipeData.yield} portions</p>
                     <div className={"join my-5"}>
-                        <a href={recipeData.url} target={'_blank'} className={"btn btn-wide join-item"}>View Recipe</a>
-                        <button className={"btn btn-primary join-item"} onClick={saveRecipe}>Add</button>
+                        <a href={recipeData.url} target={'_blank'} className={"btn btn-wide bg-base-100 join-item"}>View Recipe</a>
+                        <button className={"btn btn-primary join-item"} onClick={saveRecipe}>Save</button>
                     </div>
                     <label className="label justify-start gap-2">
                         <span className="label-text">Nutrition per portion</span>

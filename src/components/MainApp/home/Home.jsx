@@ -28,7 +28,7 @@ export default function Home() {
     return (
         <div>
             {activeModal ? <RecipeModal recipeData={modalContent}/> : null}
-            <div className={"hero min-h-[46rem]"}
+            <div className={"hero h-[50vh]"}
                  style={{backgroundImage: 'url(https://live.staticflickr.com/2912/33261917251_da121a456c_h.jpg)'}}>
                 <div className="hero-overlay bg-black bg-opacity-50 shadow-2xl"></div>
                 <div className={"hero-content text-center text-neutral-content"}>

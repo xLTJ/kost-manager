@@ -13,7 +13,7 @@ export default function HomeSearch () {
 
 
         navigate({
-            pathname: 'search',
+            pathname: '/app/search',
             search: `?${query}`
         })
     }

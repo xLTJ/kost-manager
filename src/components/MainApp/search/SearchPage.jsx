@@ -5,6 +5,7 @@ import ResultList from "./ResultList.jsx";
 import {useActiveModalStore, useFilterStore, useRecipeResultsStore} from "../../../Services/Store.js";
 import RecipeModal from "../generalComponents/RecipeModal.jsx";
 import AdvancedSearch from "./AdvancedSearch.jsx";
+import HomeSearch from "../home/HomeSearch.jsx";
 
 export default function SearchPage() {
     const recipeResultsStore = useRecipeResultsStore(state => state.recipeResults);
@@ -44,7 +45,10 @@ export default function SearchPage() {
     return (
         <div className={"container mx-auto flex justify-around"}>
             <AdvancedSearch setSearchQuery={setSearchParams}/>
-            <ResultList results={recipeResultsStore}/>
+            <div className={"p-10"}>
+                <HomeSearch/>
+                <ResultList results={recipeResultsStore}/>
+            </div>
             {activeModal ? <RecipeModal recipeData={modalContent}/> : null}
         </div>
     )

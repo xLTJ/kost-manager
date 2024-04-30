@@ -10,8 +10,8 @@ export default function Header() {
             <div className={"navbar-end"}>
                 <ul className={"menu menu-horizontal text-lg"}>
                     <li className={""}><NavLink to={'/about'}>About</NavLink></li>
-                    <li><a>Epic style</a></li>
-                    <li><a>AAAAAAA</a></li>
+                    <li><a>Yes</a></li>
+                    <li><a>Placeholder</a></li>
                     <NavLink to={'/login'}>
                         <div className={"btn btn-secondary font-bold ml-5 "}>Log In</div>
                     </NavLink>
