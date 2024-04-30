@@ -13,7 +13,17 @@ export default {
         require("tailwind-gradient-mask-image"),
     ],
     daisyui: {
-        themes: ["light", "dark", "cupcake", "forest", "lemonade", "pastel"],
+        themes: [
+            {
+            greencake: {
+                ...require("daisyui/src/theming/themes")["cupcake"],
+                'text': '#0b1204',
+                'primary': '#82d438',
+                'secondary': '#93A6DA',
+                'accent': '#EBA16E',
+            }
+        }
+        ]
     },
 }
 

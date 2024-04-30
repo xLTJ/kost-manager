@@ -24,7 +24,7 @@ export default function MainAppHeader() {
                     <li><NavLink to={'/app/nutrition-calculator'}>Nutrition Calculator</NavLink></li>
                     <li><a>:3</a></li>
                     <NavLink to={'/'} onClick={logout}>
-                        <div className={"btn btn-primary font-bold ml-5 "}>Log Out</div>
+                        <div className={"btn btn-secondary font-bold ml-5 "}>Log Out</div>
                     </NavLink>
                 </ul>
             </div>

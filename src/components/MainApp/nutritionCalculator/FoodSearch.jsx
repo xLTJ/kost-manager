@@ -3,7 +3,7 @@ import {useState} from "react";
 import FoodResultCard from "./FoodResultCard.jsx";
 
 export default function FoodSearch() {
-    const [searchResults, setSearchResults] = useState()
+    const [searchResults, setSearchResults] = useState([])
 
     return (
         <div className={"bg-base-200 flex flex-col p-10 rounded-b-xl min-w-[40rem] max-h-screen"}>

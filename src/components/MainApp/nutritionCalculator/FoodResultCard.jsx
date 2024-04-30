@@ -34,7 +34,7 @@ export default function FoodResultCard({food}) {
                     </div>
                 </div>
             </div>
-            <button className={"btn btn-secondary join-item h-auto"} onClick={addFood}>Add</button>
+            <button className={"btn btn-primary join-item h-auto"} onClick={addFood}>Add</button>
         </li>
     )
 }

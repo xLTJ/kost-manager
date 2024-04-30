@@ -18,7 +18,7 @@ export default function FoodSearchbar({setSearchResults}) {
             <input
                 type={'text'}
                 placeholder={'Search for food'}
-                className={'input input-primary w-full'}
+                className={'input input-accent w-full'}
                 value={searchValue}
                 onChange={(e) => setSearchValue(e.target.value)}
             />

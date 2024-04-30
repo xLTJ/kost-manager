@@ -13,7 +13,7 @@ export default function Header() {
                     <li><a>Epic style</a></li>
                     <li><a>AAAAAAA</a></li>
                     <NavLink to={'/login'}>
-                        <div className={"btn btn-primary font-bold ml-5 "}>Log In</div>
+                        <div className={"btn btn-secondary font-bold ml-5 "}>Log In</div>
                     </NavLink>
                 </ul>
             </div>

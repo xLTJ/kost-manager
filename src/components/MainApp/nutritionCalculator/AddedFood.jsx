@@ -14,9 +14,9 @@ export default function AddedFood() {
 
     return (
         <div className={"flex flex-col p-10 rounded-xl min-w-[46rem] max-h-screen"}>
-            <div className={"join join-vertical outline outline-1 outline-primary"}>
+            <div className={"join join-vertical outline outline-1 outline-accent"}>
                 <h2 className={"join-item bg-base-100 text-4xl flex justify-center font-bold p-4"}>Total Nutrients</h2>
-                <div className={"stats join-item outline outline-1 outline-primary"}>
+                <div className={"stats join-item outline outline-1 outline-accent"}>
                     <div className={"stat "}>
                         <span className={"stat-title"}>Calories</span>
                         <span className={"stat-value text-xl"}>{totalCalories.toFixed(0)}<span className={"text-lg"}>kcal</span></span>
