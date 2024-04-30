@@ -1,17 +1,19 @@
 import {useActiveModalStore, useUserStore} from "../../../Services/Store.js";
 import {Navigate} from "react-router";
-import HomeSearch from "./HomeSearch.jsx";
+import BigRecipeSearchbar from "../generalComponents/BigRecipeSearchbar.jsx";
 import {useEffect, useState} from "react";
 import {getSavedRecipes} from "../../../Services/firebase.js";
 import CardCarousel from "./CardCarousel.jsx";
 import RecipeModal from "../generalComponents/RecipeModal.jsx";
 
+// Home page component.
 export default function Home() {
     const isLoggedIn = useUserStore(state => state.isLoggedIn);
     const [savedRecipes, setSavedRecipes] = useState([])
     const activeModal = useActiveModalStore(state => state.activeModal);
     const modalContent = useActiveModalStore(state => state.modalContent);
 
+    // Redirect to login page if user is not logged in.
     useEffect(() => {
         const fetchSavedRecipes = async () => {
             const userUID = useUserStore.getState().userData.uid;
@@ -35,7 +37,7 @@ export default function Home() {
                     <div className={""}>
                         <h1 className={"text-4xl font-bold my-10"}><span
                             className={"text-accent"}>Welcome</span> {useUserStore.getState().username}</h1>
-                        <HomeSearch/>
+                        <BigRecipeSearchbar/>
                     </div>
                 </div>
             </div>

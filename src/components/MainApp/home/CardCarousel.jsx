@@ -1,5 +1,6 @@
 import RecipeCard from "../generalComponents/RecipeCard.jsx";
 
+// Component that displays a carousel of RecipeCards
 export default function CardCarousel ({items}) {
     const foodCards = items.map((item) => (
         <div className={"first:ml-12 last:mr-12 shrink-0 flex"}>

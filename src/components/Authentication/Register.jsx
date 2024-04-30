@@ -5,13 +5,14 @@ import {createUserWithEmailAndPassword} from "firebase/auth";
 import {useUserStore} from "../../Services/Store.js";
 import Alert from "../misc/Alert.jsx";
 
-
+// Component for user registration.
 export default function Register() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firebaseErrorMessage, setFirebaseErrorMessage] = useState('')
     const navigate = useNavigate();
 
+    // Handles registration form submission. If successful, updates user state and navigates to app page.
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

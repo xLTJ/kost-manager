@@ -5,12 +5,14 @@ import {auth} from "../../firebase.config.js";
 import {useUserStore} from "../../Services/Store.js";
 import Alert from "../misc/Alert.jsx";
 
+// Component for user login.
 export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [firebaseErrorMessage, setFirebaseErrorMessage] = useState('')
     const navigate = useNavigate();
 
+    // Handles login form submission. If successful, updates user state and navigates to app page.
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {

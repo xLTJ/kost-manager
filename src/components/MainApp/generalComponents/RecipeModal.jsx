@@ -3,6 +3,7 @@ import NutritionTable from "./NutritionTable.jsx";
 import {useState} from "react";
 import {addRecipe, getSavedRecipes} from "../../../Services/firebase.js";
 
+// Component for displaying recipe details in a modal.
 export default function RecipeModal ({recipeData}) {
     const [showPerPortion, setShowPerPortion] = useState(false)
 
@@ -10,6 +11,7 @@ export default function RecipeModal ({recipeData}) {
         useActiveModalStore.getState().closeModal();
     }
 
+    // Function for saving the recipe to the user's saved recipes. Gets the user's UID from the global state and saves the recipe to the database.
     const saveRecipe = async () => {
         const recipeUri = recipeData.uri.split('_')[1]
         const userUID = useUserStore.getState().userData.uid;
@@ -18,8 +20,6 @@ export default function RecipeModal ({recipeData}) {
         const savedRecipes = await getSavedRecipes(userUID)
         console.log(savedRecipes);
     }
-
-    console.log(recipeData)
 
     return (
         <div className={"fixed inset-0 top-16 z-10 flex flex-col justify-center items-center bg-opacity-60 bg-black"}>

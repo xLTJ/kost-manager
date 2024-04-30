@@ -1,3 +1,4 @@
+// Component for displaying nutrition information in a table.
 export default function NutritionTable({nutrients, showPerPortion, portionSize}) {
     const nutrientKeys = Object.keys(nutrients.totalNutrients);
     const nutrientData = Object.values(nutrients.totalNutrients);

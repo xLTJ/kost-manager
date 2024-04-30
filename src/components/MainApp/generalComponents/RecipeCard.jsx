@@ -2,10 +2,11 @@ import {capitalizeFirstLetter} from "../../../Services/helperFunctions.js";
 import {Link} from "react-router-dom";
 import {useActiveModalStore} from "../../../Services/Store.js";
 
+// Component for displaying a recipe card.
 export default function RecipeCard ({result}) {
     const recipe = result.recipe;
 
-
+    // Function for handling the card click. When the card is clicked, the modal is opened with the recipe data.
     const handleCardClick = (e) => {
         e.preventDefault();
         useActiveModalStore.getState().openModal(recipe);

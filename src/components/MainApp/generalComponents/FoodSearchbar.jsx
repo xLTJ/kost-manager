@@ -2,9 +2,11 @@ import {createSearchParams, useNavigate} from "react-router-dom";
 import {useState} from "react";
 import EdamamAPI from "../../../Services/edamamAPI.js";
 
+// Component for searching for food.
 export default function FoodSearchbar({setSearchResults}) {
     const [searchValue, setSearchValue] = useState('')
 
+    // Function for handling the form submission. When the form is submitted, the search result state is set to the search results from the API.
     const handleSubmit = async (e) => {
         e.preventDefault()
 

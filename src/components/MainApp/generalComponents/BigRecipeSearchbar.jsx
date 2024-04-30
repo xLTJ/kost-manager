@@ -1,7 +1,8 @@
 import {useState} from "react";
 import {createSearchParams, useNavigate} from "react-router-dom";
 
-export default function HomeSearch () {
+// Component for the search bar on the home page. Is also used on the search page, but i was too lazy to make a separate component for that.
+export default function BigRecipeSearchbar () {
     const [searchValue, setSearchValue] = useState('')
     const navigate = useNavigate();
 
