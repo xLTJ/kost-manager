@@ -1,7 +1,7 @@
 import filterList from "./filters.json";
 import SearchFilterCheckbox from "./SearchFilterCheckbox.jsx";
 
-export default function FilterDropdown ({dropDownTitle, checkboxList}) {
+export default function FilterDropdown({dropDownTitle, checkboxList}) {
     return (
         <div className="collapse collapse-arrow bg-base-200">
             <input type="checkbox"/>
