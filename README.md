@@ -1,8 +1,4 @@
-# React + Vite
+# KostManagerTM
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Se hjemmesiden på https://lucilorate.me/kost-manager/
+Hvis du vil køre hjemmesiden på din lokale maskine, husk at køre `npm install` først for at installere dependencies, og derefter `npm run dev` for at køre det. 
